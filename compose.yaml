@@ -1,0 +1,19 @@
+
+
+services:
+# Docker compose con imagen
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+    - 27017:27017
+    volumes:
+    - ./data:/data/db
+# Docker compose con build
+  mongo2:
+    build: ./mongo
+    restart: always
+    ports:
+    - 27018:27017
+    volumes:
+    - ./data2:/data/db
