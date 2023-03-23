@@ -3,12 +3,16 @@
 services:
 # Docker compose con imagen
   mongo:
-    image: mongo
+    image: dockerramiro:latest
+    #si agregas container_name puedes usarlo en vez de la id del contenedor
+    container_name: mongo
     restart: always
     ports:
     - 27017:27017
     volumes:
     - ./data:/data/db
+    networks:
+      - red
 # Docker compose con build
   mongo2:
     build: ./mongo
@@ -17,3 +21,9 @@ services:
     - 27018:27017
     volumes:
     - ./data2:/data/db
+    networks:
+      - red
+
+networks:
+  red:
+    driver: bridge
