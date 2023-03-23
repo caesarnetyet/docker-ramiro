@@ -24,6 +24,10 @@ services:
     networks:
       - red
 
+
+
 networks:
   red:
+   #cuando usamos driver bridge podemos pingear usando el nombre del servicio
+   #en este caso seria ping mongo o ping mongo2 ya que asi se llaman mis servicios
     driver: bridge
